@@ -15,7 +15,8 @@ const createOrder = async (req, res) => {
 const getOrders = async (req, res) => {
   const user_id = req.user._id;
   try {
-    const orders = await Order.find({ user_id });
+    const orders = await Order.find();
+    // const orders = await Order.find({ user_id });
     res.json(orders);
   } catch (error) {
     res.status(500).json({ error: "An error occurred" });
